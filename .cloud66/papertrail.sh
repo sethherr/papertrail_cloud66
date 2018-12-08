@@ -4,10 +4,10 @@ LOCATION_ARG=$1 # $STACK_BASE needs to be passed as the first argument when runn
 papertrail_host="logs.papertrailapp.com"        # The host for your Papertrail connection
 papertrail_port="12345"                         # The port for your Papertrail connection
 log_files=(                                     # List of log files to send to Papertrail
-  "$LOCATION_ARG/shared/log/nginx_error.log"
-  "$LOCATION_ARG/shared/log/production.log"     # Default rack app log location
+  "- $LOCATION_ARG/shared/log/nginx_error.log"
+  "- $LOCATION_ARG/shared/log/production.log"     # Default rack app log location
 )
-initd_url="https://github.com/papertrail/remote_syslog2/releases/download/v0.18/remote_syslog_linux_amd64.tar.gz"
+initd_url="https://github.com/papertrail/remote_syslog2/releases/download/v0.20/remote_syslog_linux_amd64.tar.gz"
 
 # Download and install the remote_syslog2 binary from papertrail
 wget $initd_url -P /tmp/
